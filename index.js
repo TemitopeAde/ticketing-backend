@@ -119,6 +119,7 @@ app.get('/api/search', async (req, res) => {
 app.post('/api/invoice-created', async (req, res) => {
   // console.log(res.body, "webhook");
   const { type, data } = res.body;
+  console.log(type);
 
   if (type === "invoice.created") {
     console.log(data, "data");
