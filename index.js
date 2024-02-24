@@ -116,7 +116,7 @@ app.get('/api/search', async (req, res) => {
 });
 
 
-app.get('/api/invoice-created', async (req, res) => {
+app.post('/api/invoice-created', async (req, res) => {
   console.log(res, "webhook");
 
   res.status(200).json({
