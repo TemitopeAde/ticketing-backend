@@ -80,9 +80,10 @@ app.get('/api/items', async (req, res) => {
 });
 
 app.get('/api/search', async (req, res) => {
-  console.log(req.query);
+  console.log(req.query.term);
 
-  const searchQuery = req.query.query || '';
+
+  const searchQuery = req?.query?.term || '';
   const regex = new RegExp(searchQuery, 'i');
   
   try {
@@ -90,11 +91,10 @@ app.get('/api/search', async (req, res) => {
     const items = await Product.find({
       $or: [
         { NAME: regex },
-        { VENUE: regex },
-        { CITY: regex },
-        { CATEGORY: regex },
-        { TYPE: regex }
-        // Add more fields if needed
+        // { VENUE: regex },
+        // { CITY: regex },
+        // { CATEGORY: regex },
+        // { TYPE: regex } 
       ]
     })
       
@@ -111,6 +111,11 @@ app.get('/api/search', async (req, res) => {
     console.error('Error fetching items:', error);
     return res.status(500).json({ message: "Internal server error" });
   }
+});
+
+
+app.get('/api/invoice-created', async (req, res) => {
+  console.log(res);
 });
 
 // POST request to send an email
