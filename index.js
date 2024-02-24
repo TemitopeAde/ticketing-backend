@@ -116,6 +116,10 @@ app.get('/api/search', async (req, res) => {
 
 app.get('/api/invoice-created', async (req, res) => {
   console.log(res);
+
+  res.status(200).json({
+    message: "Success"
+  });
 });
 
 // POST request to send an email
