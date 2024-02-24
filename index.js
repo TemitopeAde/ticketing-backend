@@ -117,7 +117,7 @@ app.get('/api/search', async (req, res) => {
 
 
 app.get('/api/invoice-created', async (req, res) => {
-  console.log(res);
+  console.log(res, "webhook");
 
   res.status(200).json({
     message: "Success"
@@ -313,5 +313,5 @@ app.post('/api/send-email', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server is listening at http://localhost:${port}`);
+  // console.log(`Server is listening at http://localhost:${port}`);
 });
