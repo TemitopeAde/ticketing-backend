@@ -117,7 +117,14 @@ app.get('/api/search', async (req, res) => {
 
 
 app.post('/api/invoice-created', async (req, res) => {
-  console.log(res, "webhook");
+  console.log(res.body, "webhook");
+  const { type, data } = res.body;
+
+  if (type === "invoice.created") {
+    console.log(data, "data");
+    // const { id, email_address } = data;
+  }
+
 
   res.status(200).json({
     message: "Success"
