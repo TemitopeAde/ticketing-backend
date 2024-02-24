@@ -97,6 +97,8 @@ app.get('/api/search', async (req, res) => {
         // { TYPE: regex } 
       ]
     })
+
+    // console.log(items);
       
     if (!items || items.length === 0) {
       return res.status(404).json({ message: "Not found" });
